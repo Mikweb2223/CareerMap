@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | CareerMap</title>
+
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+    <main>
+
+
+        <!-- CONTENT -->
+        <section class="signup-content">
+
+            <h1>
+                Create your<br>
+                <span>account</span>
+            </h1>
+
+            <p class="intro">
+                Let’s get you started on your journey to<br>
+                discover the right career path
+            </p>
+
+
+            <!-- FORM -->
+            <form id="signupForm">
+
+                <!-- FULL NAME -->
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">♙</span>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label>Email Address</label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">✉</span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email address"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+
+                    <label>Password</label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">♙</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create a password"
+                        >
+
+                        <button
+                            type="button"
+                            class="eye-btn"
+                            data-target="password"
+                        >
+                            ◉
+                        </button>
+
+                    </div>
+
+                    <small>
+                        At least 8 characters with letters, numbers & symbols
+                    </small>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+                <div class="form-group">
+
+                    <label>Confirm Password</label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">♙</span>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm your password"
+                        >
+
+                        <button
+                            type="button"
+                            class="eye-btn"
+                            data-target="confirmPassword"
+                        >
+                            ◉
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CREATE ACCOUNT -->
+                <button type="submit" class="create-btn">
+
+                    <span>Create Account</span>
+
+                    <span class="arrow">→</span>
+
+                </button>
+
+            </form>
+
+
+            <!-- SOCIAL -->
+            <p class="or-text">
+                or&nbsp; sign up with
+            </p>
+
+
+            <div class="social-buttons">
+
+                <button class="googleBtn">
+                    <b>G</b>
+                    Google
+                </button>
+
+                <button class="appleBtn">
+                    <b>●</b>
+                    Apple
+                </button>
+
+                <button class="microsoftBtn">
+                    <b>⊞</b>
+                    Microsoft
+                </button>
+
+            </div>
+
+
+            <!-- LOGIN -->
+            <p class="login-text">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script>
+        const signupForm = document.querySelector("#signupForm");
+
+const password = document.querySelector("#password");
+const confirmPassword = document.querySelector("#confirmPassword");
+
+const eyeButtons = document.querySelectorAll(".eye-btn");
+
+
+// SHOW / HIDE PASSWORD
+eyeButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const targetId = button.dataset.target;
+
+        const input = document.getElementById(targetId);
+
+        if (input.type === "password") {
+
+            input.type = "text";
+
+            button.textContent = "◉";
+
+        } else {
+
+            input.type = "password";
+
+            button.textContent = "◉";
+        }
+
+    });
+
+});
+
+
+
+
+
+
+// PASSWORD SHOW / HIDE
+function togglePassword(inputId, button) {
+
+    const input = document.getElementById(inputId);
+
+
+    if (input.type === "password") {
+
+        input.type = "text";
+
+        button.textContent = "◉";
+
+    } else {
+
+        input.type = "password";
+
+        button.textContent = "◉";
+
+    }
+
+}
+
+
+// CREATE ACCOUNT
+const createAccountBtn =
+    document.getElementById("createAccountBtn");
+
+const googleBtn =
+    document.getElementById("googleBtn");
+
+const appleBtn =
+    document.getElementById("appleBtn");
+
+
+const microsoftBtn =
+    document.getElementById("microsoftBtn");
+
+createAccountBtn.addEventListener("click", function () {
+
+    const fullName =
+        document.getElementById("fullName").value.trim();
+
+
+    const email =
+        document.getElementById("email").value.trim();
+
+
+    const password =
+        document.getElementById("password").value;
+
+
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+
+    if (!fullName || !email || !password || !confirmPassword) {
+
+        alert("Please fill in all fields.");
+
+        return;
+
+    }
+
+
+    if (password.length < 8) {
+
+        alert("Password must be at least 8 characters.");
+
+        return;
+
+    }
+
+
+    if (password !== confirmPassword) {
+
+        alert("Passwords do not match.");
+
+        return;
+
+    }
+
+
+    alert("Account created successfully!");
+
+});
+
+
+// GOOGLE SIGN UP
+googleBtn.addEventListener("click", function () {
+
+    window.location.href =
+        "https://accounts.google.com/signup";
+
+});
+
+
+// APPLE SIGN UP
+appleBtn.addEventListener("click", function () {
+
+    window.location.href =
+        "https://appleid.apple.com/account";
+
+});
+
+
+// MICROSOFT SIGN UP
+microsoftBtn.addEventListener("click", function () {
+
+    window.location.href =
+        "https://accounts.microsoft.com/signup";
+
+});
+    </script>
+</body>
+</html>
