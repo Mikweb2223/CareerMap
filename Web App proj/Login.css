@@ -259,18 +259,12 @@ label {
 }
 
 
-/* ================= OR ================= */
-
 .or-text {
     margin: 65px 0 35px;
-
+    color: white;
     text-align: center;
-
     font-size: 25px;
 }
-
-
-/* ================= SOCIAL BUTTONS ================= */
 
 .social-buttons {
     display: grid;
@@ -374,8 +368,6 @@ label {
 }
 
 
-/* ================= CREATE ACCOUNT ================= */
-
 .create-account {
     margin-top: 65px;
 
@@ -393,8 +385,6 @@ label {
     margin-left: 7px;
 }
 
-
-/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
 
