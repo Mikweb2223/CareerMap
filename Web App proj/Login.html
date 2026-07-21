@@ -97,11 +97,8 @@
                 <span>Remember me</span>
 
             </div>
-
-            <!-- Error Message -->
-            <p class="error-message" id="errorMessage">
-                Incorrect password please try again.
-            </p>
+           /!-- Error-Message --!/
+           <p id="errorMessage" class="error-message"></p>
 
             <!-- LOGIN BUTTON -->
             <button
@@ -249,6 +246,35 @@ rememberBtn.addEventListener("click", () => {
 
 });
 
+        loginForm.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const passwordValue = password.value;
+
+    // Example correct password
+    const correctPassword = "12345678";
+
+    // Remove previous error
+    passwordBox.classList.remove("error");
+    errorMessage.classList.remove("show");
+
+    if (passwordValue !== correctPassword) {
+
+        // Show red border
+        passwordBox.classList.add("error");
+
+        // Show error message
+        errorMessage.textContent = "Incorrect password. Please try again.";
+        errorMessage.classList.add("show");
+
+        return;
+    }
+    
+// Login successful
+    window.location.href = "dashboard.html";
+
+});
 
 // LOGIN
 loginBtn.addEventListener("click", () => {
