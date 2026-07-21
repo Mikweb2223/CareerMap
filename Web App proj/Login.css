@@ -197,7 +197,21 @@ label {
     border: 2px solid #873bf1;
 }
 
+/* ERROR */
 
+.error-message {
+    display: none;
+
+    color: #ff6c75;
+
+    font-size: 22px;
+
+    margin: 18px 5px 105px;
+}
+
+.error-message.show {
+    display: block;
+}
 .login-btn {
     width: 100%;
 
