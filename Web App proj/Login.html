@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Login | CareerMap</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Login.css">
 </head>
 
@@ -119,55 +119,14 @@
             </p>
 
 
-            <!-- SOCIAL LOGIN -->
-            <div class="social-buttons">
+           <button class="google-btn">
 
-                <!-- GOOGLE -->
-                <button
-                    class="social-btn"
-                    id="googleBtn"
-                >
+            <img
+            src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
 
-                    <span class="google-logo">G</span>
+            Google
 
-                    <span>Google</span>
-
-                </button>
-
-
-                <!-- APPLE -->
-                <button
-                    class="social-btn"
-                    id="appleBtn"
-                >
-
-                    <span class="apple-logo">●</span>
-
-                    <span>Apple</span>
-
-                </button>
-
-
-                <!-- MICROSOFT -->
-                <button
-                    class="social-btn"
-                    id="microsoftBtn"
-                >
-
-                    <span class="microsoft-logo">
-
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-
-                    </span>
-
-                    <span>Microsoft</span>
-
-                </button>
-
-            </div>
+        </button>
 
 
             <!-- CREATE ACCOUNT -->
@@ -199,14 +158,6 @@ const rememberBtn =
 const loginBtn =
     document.getElementById("loginBtn");
 
-const googleBtn =
-    document.getElementById("googleBtn");
-
-const appleBtn =
-    document.getElementById("appleBtn");
-
-const microsoftBtn =
-    document.getElementById("microsoftBtn");
 
 
 // SHOW / HIDE PASSWORD
@@ -301,31 +252,30 @@ loginBtn.addEventListener("click", () => {
 });
 
 
-// GOOGLE LOGIN
-googleBtn.addEventListener("click", () => {
+const googleBtn = document.querySelector(".google-btn");
 
-    window.location.href =
-        "https://accounts.google.com/";
+googleBtn.addEventListener("click", function (e) {
 
+    e.preventDefault();
+
+    const ripple = document.createElement("span");
+
+    ripple.classList.add("ripple");
+
+    ripple.style.left = `${e.offsetX}px`;
+    ripple.style.top = `${e.offsetY}px`;
+
+    this.appendChild(ripple);
+
+    setTimeout(() => {
+        ripple.remove();
+    
+ 
+    // Opens Google's sign-in page
+        window.open("https://accounts.google.com/signin", "_blank");
+    }, 600);
 });
-
-
-// APPLE LOGIN
-appleBtn.addEventListener("click", () => {
-
-    window.location.href =
-        "https://account.apple.com/";
-
-});
-
-
-// MICROSOFT LOGIN
-microsoftBtn.addEventListener("click", () => {
-
-    window.location.href =
-        "https://login.live.com/";
-
-});
+        
     </script>
 
 </body>
