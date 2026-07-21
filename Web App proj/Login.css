@@ -198,20 +198,19 @@ label {
 }
 
 /* ERROR */
-
-.error-message {
+.error-message{
     display: none;
-
-    color: #ff6c75;
-
-    font-size: 22px;
-
-    margin: 18px 5px 105px;
+    color: #ff5d68;
 }
 
-.error-message.show {
+.error-message.show{
     display: block;
 }
+
+.input-box.error{
+    border: 2px solid #ff5d68;
+}
+
 .login-btn {
     width: 100%;
 
