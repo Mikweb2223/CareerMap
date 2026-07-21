@@ -275,99 +275,37 @@ label {
 }
 
 
-.social-btn {
-    height: 65px;
+.google-btn{
+    width:100%;
+    border:1px solid #ececec;
+    background:white;
+    border-radius:15px;
+    padding:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    font-weight:500;
+    transition:.3s;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    border: 2px solid rgba(128, 55, 245, .5);
-
-    border-radius: 25px;
-
-    background: rgba(46, 8, 118, .7);
-
-    color: white;
-
-    font-size: 21px;
-
-    font-family: inherit;
-
-    cursor: pointer;
-
-    transition: .3s ease;
 }
 
+.google-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 
-.social-btn:hover {
-    background: #3d0b82;
-
-    border-color: #974cff;
-
-    transform: translateY(-2px);
 }
 
+.google-btn img{
+    width:22px;
 
-/* GOOGLE LOGO */
-
-.google-logo {
-    font-size: 36px;
-
-    font-weight: 700;
-
-    color: #4285f4;
 }
 
-
-/* APPLE LOGO */
-
-.apple-logo {
-    color: #000;
-
-    font-size: 35px;
+.google-btn{
+    position:relative;
+    overflow:hidden;
 }
-
-
-/* MICROSOFT LOGO */
-
-.microsoft-logo {
-    width: 28px;
-
-    height: 28px;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 3px;
-}
-
-
-.microsoft-logo i:nth-child(1) {
-    background: #f25022;
-}
-
-
-.microsoft-logo i:nth-child(2) {
-    background: #7fba00;
-}
-
-
-.microsoft-logo i:nth-child(3) {
-    background: #00a4ef;
-}
-
-
-.microsoft-logo i:nth-child(4) {
-    background: #ffb900;
-}
-
-
 .create-account {
     margin-top: 65px;
     color: white;
