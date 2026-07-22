@@ -128,7 +128,11 @@
 
         </button>
 
-
+        <div id="g_id_onload"
+            data-client_id="YOUR_GOOGLE_CLIENT_ID"
+            data-context="signup"
+            data-callback="handleCredentialResponse">
+        </div>
             <!-- CREATE ACCOUNT -->
             <p class="create-account">
 
@@ -145,7 +149,7 @@
     </main>
 
 
-    <script>
+    <script src="https://accounts.google.com/gsi/client" async defer>
         const passwordInput =
     document.getElementById("password");
 
@@ -250,31 +254,28 @@ loginBtn.addEventListener("click", () => {
 
  
 });
-
-
+        
 const googleBtn = document.querySelector(".google-btn");
 
-googleBtn.addEventListener("click", function (e) {
+googleBtn.addEventListener("click", () => {
 
-    e.preventDefault();
+    google.accounts.id.prompt();
 
-    const ripple = document.createElement("span");
-
-    ripple.classList.add("ripple");
-
-    ripple.style.left = `${e.offsetX}px`;
-    ripple.style.top = `${e.offsetY}px`;
-
-    this.appendChild(ripple);
-
-    setTimeout(() => {
-        ripple.remove();
-    
- 
-    // Opens Google's sign-in page
-        window.open("https://accounts.google.com/signin", "_blank");
-    }, 600);
 });
+
+function handleCredentialResponse(response) {
+
+    console.log(response);
+
+    // JWT Token
+    const token = response.credential;
+
+    console.log(token);
+
+    // Redirect after successful signup/login
+    window.location.href = "home.html";
+
+}
         
     </script>
 
