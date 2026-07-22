@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Create Account | CareerMap</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
@@ -147,25 +147,22 @@
                 or&nbsp; sign up with
             </p>
 
+           <button class="google-btn">
 
-            <div class="social-buttons">
+            <img
+            src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
 
-                <button class="googleBtn">
-                    <b>G</b>
-                    Google
-                </button>
+            Google
 
-                <button class="appleBtn">
-                    <b>●</b>
-                    Apple
-                </button>
-
-                <button class="microsoftBtn">
-                    <b>⊞</b>
-                    Microsoft
-                </button>
-
-            </div>
+            </button>
+            
+           
+        <div id="g_id_onload"
+            data-client_id="YOUR_GOOGLE_CLIENT_ID"
+            data-context="signup"
+            data-callback="handleCredentialResponse">
+        </div>
+        
 
 
             <!-- LOGIN -->
@@ -179,7 +176,7 @@
     </main>
 
 
-    <script>
+    <script src="https://accounts.google.com/gsi/client" async defer>
         const signupForm = document.querySelector("#signupForm");
 
 const password = document.querySelector("#password");
@@ -246,18 +243,6 @@ function togglePassword(inputId, button) {
 const createAccountBtn =
     document.getElementById("createAccountBtn");
 
-const googleBtn =
-    document.getElementById("googleBtn");
-
-const appleBtn =
-    document.getElementById("appleBtn");
-
-
-const microsoftBtn =
-    document.getElementById("microsoftBtn");
-
-createAccountBtn.addEventListener("click", function () {
-
     const fullName =
         document.getElementById("fullName").value.trim();
 
@@ -305,32 +290,27 @@ createAccountBtn.addEventListener("click", function () {
 
 });
 
+const googleBtn = document.querySelector(".google-btn");
 
-// GOOGLE SIGN UP
-googleBtn.addEventListener("click", function () {
+googleBtn.addEventListener("click", () => {
 
-    window.location.href =
-        "https://accounts.google.com/signup";
-
-});
-
-
-// APPLE SIGN UP
-appleBtn.addEventListener("click", function () {
-
-    window.location.href =
-        "https://appleid.apple.com/account";
+    google.accounts.id.prompt();
 
 });
 
+function handleCredentialResponse(response) {
 
-// MICROSOFT SIGN UP
-microsoftBtn.addEventListener("click", function () {
+    console.log(response);
 
-    window.location.href =
-        "https://accounts.microsoft.com/signup";
+    // JWT Token
+    const token = response.credential;
 
-});
+    console.log(token);
+
+    // Redirect after successful signup/login
+    window.location.href = "home.html";
+
+}
     </script>
 </body>
 </html>
